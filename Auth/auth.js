@@ -5,8 +5,8 @@ dotenv.config();
 
 const verifyToken = async (req, res, next) => {
     try {
-        // Get the token from the Authorization header (Bearer token)
-        const token = req.header('Authorization')?.replace('Bearer ', '');
+        // Get the token from the cookies
+        const token = req.cookies.token;
 
         // If token is not present, return an error
         if (!token) {
@@ -29,4 +29,4 @@ const verifyToken = async (req, res, next) => {
     }
 };
 
-export default verifyToken;
+export default verifyToken; 
