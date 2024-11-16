@@ -10,7 +10,7 @@ const verifyToken = async (req, res, next) => {
 
         // If token is not present, return an error
         if (!token) {
-            return res.status(401).json({ message: "Token is missing" });
+            return res.status(401).json({ message: "Token is missing....." });
         }
 
         // If token is present, verify it
