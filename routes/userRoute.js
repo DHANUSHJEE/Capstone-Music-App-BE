@@ -41,5 +41,5 @@ router.put("/addSongToPlaylist/:playlistId", verifyToken, controller.addSongToPl
 router.put("/removeSongFromPlaylist/:playlistId", verifyToken, controller.removeSongFromPlaylist); // Protect route
 router.get("/getSongInPlaylist/:playlistId", verifyToken, controller.getSongsInPlaylist); // Protect route
 router.delete("/deletePlaylist/:id", verifyToken, controller.deletePlaylist); // Protect route
-
+router.put("/playlists/:playlistId", verifyToken, controller.updatePlaylistName); // Update a playlist's name
 export default router;

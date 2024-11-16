@@ -643,7 +643,29 @@ const controller = {
         } catch (error) {
             res.status(500).json({ message: "Error deleting playlist", error: error.message });
         }
-    }
+    },
+   
+
+    updatePlaylistName: async (req, res) => {
+        try {
+            const { playlistId } = req.params;
+            const { name } = req.body;
+
+            const playlist = await Playlist.findById(playlistId);
+            if (!playlist) {
+                return res.status(404).json({ message: "Playlist not found" });
+            }
+
+            playlist.name = name;
+            await playlist.save();
+
+            res.status(200).json({ message: "Playlist name updated", playlist });
+        } catch (error) {
+            res.status(500).json({ message: "Error updating playlist name", error: error.message });
+        }
+    },
+
+
 
 
 
